@@ -1,6 +1,9 @@
-import sys
+import sys, json
 
-liste = []
+path = "/Users/lucas/Desktop/Projects/first-python/market.json"
+
+with open(path, "r") as f:
+    liste = json.load(f)
 
 while True:
     print("Choisissez parmi les 5 options suivantes :")
@@ -35,5 +38,7 @@ while True:
             print("La liste a été vidée de son contenu.")
         if choice == 5:
             print("A bientôt !")
+            with open("market.json", "w") as f:
+                json.dump(liste, f, indent=4)
             sys.exit()
     print("-----------------------------------")
